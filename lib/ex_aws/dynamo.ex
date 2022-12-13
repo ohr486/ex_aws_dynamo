@@ -349,6 +349,7 @@ defmodule ExAws.Dynamo do
         "KeyType" => type |> upcase
       }
     end)
+    |> Enum.sort(fn(x, y) -> x["KeyType"] < y["KeyType"] end)
   end
 
   @spec build_billing_mode(
